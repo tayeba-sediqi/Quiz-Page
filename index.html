@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Quiz Page</title>
+
+<!-- Tailwind CDN -->
+<script src="https://cdn.tailwindcss.com"></script>
+
+</head>
+
+<body class="font-sans bg-gray-100 flex justify-center items-start min-h-screen pt-10">
+
+<div class="bg-white w-[500px] p-8 rounded-xl shadow-lg">
+
+<h1 class="text-center text-green-600 text-2xl font-bold">Simple Quiz</h1>
+
+<form id="quizForm">
+
+<div class="mt-5">
+<p>1. What is 5 + 3 ?</p>
+<label><input type="radio" name="q1" value="6"> 6</label><br>
+<label><input type="radio" name="q1" value="8"> 8</label><br>
+<label><input type="radio" name="q1" value="10"> 10</label>
+</div>
+
+<div class="mt-5">
+<p>2. What is 10 - 4 ?</p>
+<label><input type="radio" name="q2" value="5"> 5</label><br>
+<label><input type="radio" name="q2" value="6"> 6</label><br>
+<label><input type="radio" name="q2" value="7"> 7</label>
+</div>
+
+<div class="mt-5">
+<p>3. What is the opposite of "Hot" ?</p>
+<label><input type="radio" name="q3" value="Cold"> Cold</label><br>
+<label><input type="radio" name="q3" value="Warm"> Warm</label><br>
+<label><input type="radio" name="q3" value="Dry"> Dry</label>
+</div>
+
+<div class="mt-5">
+<p>4. What is 7 × 2 ?</p>
+<label><input type="radio" name="q4" value="12"> 12</label><br>
+<label><input type="radio" name="q4" value="14"> 14</label><br>
+<label><input type="radio" name="q4" value="16"> 16</label>
+</div>
+
+<button type="button"
+onclick="checkAnswers()"
+class="mt-5 px-5 py-2 bg-green-600 text-white rounded-lg hover:bg-green-700 transition">
+Submit
+</button>
+
+</form>
+
+<div id="result" class="mt-5 text-center text-lg"></div>
+
+<footer class="mt-10 capitalize text-center text-sm text-gray-600">
+<p>design & developed by tayeba sediqi</p>
+</footer>
+
+</div>
+
+<script>
+function checkAnswers(){
+
+let score = 0;
+
+let q1 = document.querySelector('input[name="q1"]:checked');
+let q2 = document.querySelector('input[name="q2"]:checked');
+let q3 = document.querySelector('input[name="q3"]:checked');
+let q4 = document.querySelector('input[name="q4"]:checked');
+
+if(q1 && q1.value === "8"){ score++; }
+if(q2 && q2.value === "6"){ score++; }
+if(q3 && q3.value === "Cold"){ score++; }
+if(q4 && q4.value === "14"){ score++; }
+
+let result = document.getElementById("result");
+
+result.innerHTML = "Your Score: " + score + " / 4";
+
+if(score === 4){
+result.innerHTML += "<p class='text-green-600 font-bold'>Excellent!</p>";
+}else{
+result.innerHTML += "<p class='text-red-600 font-bold'>Try again!</p>";
+}
+
+}
+</script>
+
+</body>
+</html>
